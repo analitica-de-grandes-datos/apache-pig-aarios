@@ -22,7 +22,7 @@ $ pig -x local -f pregunta.pig
         >>> Escriba su respuesta a partir de este punto <<<
 */
 
-tbl = LOAD 'data.csv' USING PigStorage(',')
+df23 = LOAD 'data.csv' USING PigStorage(',')
         AS(col1:INT,
            col2:charArray,
            col3:charArray,
@@ -30,6 +30,6 @@ tbl = LOAD 'data.csv' USING PigStorage(',')
            col5:charArray,
            col6:INT);
 
-tbl = FOREACH utbl GENERATE col2, col5;
-tbl = FILTER tbl BY col5 MATCHES '[aeiou]$';
-STORE tbl INTO 'output' USING PigStorage(',');
+df23 = FOREACH df23 GENERATE col2, col5;
+df23 = FILTER df23 BY col5 MATCHES '[aeiou]$';
+STORE df23 INTO 'output' USING PigStorage(',');
