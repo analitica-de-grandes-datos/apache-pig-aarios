@@ -21,7 +21,7 @@ $ pig -x local -f pregunta.pig
         /* >>> Escriba su respuesta a partir de este punto <<< */
 */
 
-x = LOAD 'data.csv' USING PigStorage(',')
+u = LOAD 'data.csv' USING PigStorage(',')
         AS(col1:INT,
            col2:charArray,
            col3:charArray,
@@ -29,6 +29,6 @@ x = LOAD 'data.csv' USING PigStorage(',')
            col5:charArray,
            col6:INT);
 
-x = FOREACH x GENERATE col2, col5;
-x = FILTER x BY NOT col5 IN ('blue','black');
-STORE x INTO 'output' USING PigStorage(',');
+u = FOREACH u GENERATE col2, col5;
+u = FILTER u BY NOT col5 IN ('blue','black');
+STORE u INTO 'output' USING PigStorage(',');

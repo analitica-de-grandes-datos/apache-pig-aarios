@@ -23,7 +23,7 @@ $ pig -x local -f pregunta.pig
 
 */
 
-x = LOAD 'data.csv' USING PigStorage(',')
+u = LOAD 'data.csv' USING PigStorage(',')
         AS(col1:INT,
            col2:charArray,
            col3:charArray,
@@ -31,6 +31,6 @@ x = LOAD 'data.csv' USING PigStorage(',')
            col5:charArray,
            col6:INT);
 
-x = FOREACH x GENERATE col2, col5;
-x = FILTER x BY col5 MATCHES '^b.*';
-STORE x INTO 'output' USING PigStorage(',');
+u = FOREACH u GENERATE col2, col5;
+u = FILTER u BY col5 MATCHES '^b.*';
+STORE u INTO 'output' USING PigStorage(',');
